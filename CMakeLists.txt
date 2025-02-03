@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(snakeGame) # Put C,C++ or anything in place of XX 
+project(Thermus_Application) # PROJECT NAME -- CHANGE FOR WHATEVER PROJECT YOUR USING
 set(CMAKE_CXX_STANDARD 20)    # Specify standard of language in place of STANDARD  
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -21,6 +21,5 @@ if (NOT raylib_FOUND) # If there's none, fetch and build raylib
 endif()
 
 
-add_executable(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
-                               ${CMAKE_CURRENT_SOURCE_DIR}/src/Tile.cpp)
+add_executable(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp)
 target_link_libraries(${PROJECT_NAME} raylib)
