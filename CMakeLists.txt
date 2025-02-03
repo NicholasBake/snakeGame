@@ -21,6 +21,6 @@ if (NOT raylib_FOUND) # If there's none, fetch and build raylib
 endif()
 
 
-add_executable(${PROJECT_NAME} /media/nicholas/E/Snake/snakeGame/src/main.cpp
-                               /media/nicholas/E/Snake/snakeGame/src/Tile.cpp)
+add_executable(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
+                               ${CMAKE_CURRENT_SOURCE_DIR}/src/Tile.cpp)
 target_link_libraries(${PROJECT_NAME} raylib)
