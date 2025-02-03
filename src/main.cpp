@@ -18,7 +18,7 @@ std::vector<Snake> snakeBody;
 constexpr int screenWidth = 1000;
 constexpr int screenHeight = 800;
 
-// elapsedTime is increased by the time inbetween frames (deltaTime). This is used as the time step mechanic of the main game loop, as it allows me to always render to the screen but only update game logic every time stepw
+// elapsedTime is increased by the time inbetween frames (deltaTime). This is used as the time step mechanic of the main game loop, as it allows me to always render to the screen but only update game logic every time step
 float elapsedTime = 0;
     
 // interval in which the Running method should be called. 
@@ -132,8 +132,18 @@ void GameLogic(int lastKeyPressed){
             snakeBody.push_back(snakeToAdd);
 
             Map.at(snakeBody.at(0).Y).at(snakeBody.at(0).X).isFood = false;
-            // have to do - 1 at the end because when initializing map array the size includes index 0 (so size 9 is 0,1,2,3,4,5,6,7,8 which is nine elementsw)
-            Map.at(GetRandomValue(0, collumns - 1)).at(GetRandomValue(0, rows - 1)).isFood = true;
+            // have to do - 1 at the end because when initializing map array the size includes index 0 (so size 9 is 0,1,2,3,4,5,6,7,8 which is nine elements)
+            while (true)
+            {
+                int Y = GetRandomValue(0, collumns - 1);
+                int X = GetRandomValue(0, rows - 1);
+                if(!Map.at(Y).at(X).isSnake){
+                    Map.at(Y).at(X).isFood = true;
+                    break;
+                }
+            }
+            
+            //Map.at(GetRandomValue(0, collumns - 1)).at(GetRandomValue(0, rows - 1)).isFood = true;
         }
         
         /*if(Map.at(snakeBody.at(0).Y).at(snakeBody.at(0).X).isSnake ){
